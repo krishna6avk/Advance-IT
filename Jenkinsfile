@@ -5,7 +5,12 @@ pipeline {
     stages {
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                fileOperations([fileCopyOperation(
+                excludes: '',
+                flattenFiles: false,
+                includes: 'C:\\TP\\QueryCSV\KL02.parquet',
+                targetLocation: "C:\\TP\\training_website"
+                )])
             }
         }
     }
